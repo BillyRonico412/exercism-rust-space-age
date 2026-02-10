@@ -2,18 +2,16 @@
 // In order to pass the tests you can add-to or change any of this code.
 
 #[derive(Debug)]
-pub struct Duration;
+pub struct Duration(u64);
 
 impl From<u64> for Duration {
     fn from(s: u64) -> Self {
-        todo!("s, measured in seconds: {s}")
+        Duration(s)
     }
 }
 
 pub trait Planet {
-    fn years_during(d: &Duration) -> f64 {
-        todo!("convert a duration ({d:?}) to the number of years on this planet for that duration");
-    }
+    fn years_during(d: &Duration) -> f64;
 }
 
 pub struct Mercury;
@@ -25,7 +23,12 @@ pub struct Saturn;
 pub struct Uranus;
 pub struct Neptune;
 
-impl Planet for Mercury {}
+impl Planet for Mercury {
+    fn years_during(d: &Duration) -> f64 {
+        let RATIO_YEAR_EARTH_MERCURY = 0.2408467;
+        let nb_sec_in_year = 
+    }
+}
 impl Planet for Venus {}
 impl Planet for Earth {}
 impl Planet for Mars {}
